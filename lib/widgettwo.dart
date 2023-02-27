@@ -9,22 +9,22 @@ class Widgettwo extends StatefulWidget {
 }
 
 class _WidgettwoState extends State<Widgettwo> {
-  bool _isFullScreen = false;
+  bool fullScreen = false;
 
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    final widgetHeight = _isFullScreen ? screenHeight : screenHeight / 2;
+    final widgetHeight = fullScreen ? screenHeight : screenHeight / 2;
 
     return Container(
       height: widgetHeight,
       color: widgetHeight < (screenHeight * 0.6) ? Colors.green : Colors.yellow,
       child: Center(
-        child: _isFullScreen
+        child: fullScreen
             ? ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    _isFullScreen = false;
+                    fullScreen = false;
                   });
                 },
                 child: const Text('Close Widget'),
@@ -32,7 +32,7 @@ class _WidgettwoState extends State<Widgettwo> {
             : ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    _isFullScreen = true;
+                    fullScreen = true;
                   });
                   Navigator.push(
                       context,
